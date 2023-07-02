@@ -15,6 +15,8 @@ namespace TestmonitorTests.Steps
         public LoginPage LoginPage => new LoginPage(Driver);
         public ProjectsPage ProjectsPage => new ProjectsPage(Driver);
 
+        public SettingsProjetsPage Settings => new SettingsProjetsPage(Driver);
+
         public BaseStep(IWebDriver driver)
         {
             Driver = driver;

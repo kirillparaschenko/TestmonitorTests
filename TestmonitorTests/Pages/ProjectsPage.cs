@@ -4,15 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestmonitorTests.Wrappers;
 
 namespace TestmonitorTests.Pages
 {
     public class ProjectsPage : BasePage
     {
-        private static string END_POINT = "my-projects";
+        private string END_POINT = "my-projects";
 
         //Locators
-        private static readonly By ManageProjectsButtonBy = By.ClassName("button is-white");
+        private readonly By ManageProjectsButtonBy = By.CssSelector("a.button.is-white");
 
         public ProjectsPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
         {
@@ -28,6 +29,18 @@ namespace TestmonitorTests.Pages
         protected override string GetEndpoint()
         {
             return END_POINT;
+        }
+
+        //Methods
+
+        public Button ManageProjectsButton()
+        {
+            return new Button(Driver, ManageProjectsButtonBy);
+        }
+
+        public void OpenSettingsProjetsPage()
+        {
+            ManageProjectsButton().Click();
         }
     }
 }

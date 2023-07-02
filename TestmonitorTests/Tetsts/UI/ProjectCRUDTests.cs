@@ -30,7 +30,7 @@ namespace TestmonitorTests.Tetsts.UI
         [Test]
         public void CreationProjectTest()
         {
-
+            ProjectsPage.OpenSettingsProjetsPage();
         }
     }
 }

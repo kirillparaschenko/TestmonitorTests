@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TestmonitorTests.Core;
+using TestmonitorTests.Pages;
 using TestmonitorTests.Steps;
 
 namespace TestmonitorTests.Tetsts.UI
@@ -17,6 +18,8 @@ namespace TestmonitorTests.Tetsts.UI
         protected IWebDriver Driver;
         private AllureLifecycle _allure;
         protected LoginSteps LoginSteps;
+        protected ProjectsPage ProjectsPage;
+        protected SettingsProjetsPage SettingsProjetsPage;
 
         [SetUp]
         public void Setup()
@@ -25,6 +28,8 @@ namespace TestmonitorTests.Tetsts.UI
 
             // Init Steps
             LoginSteps = new LoginSteps(Driver);
+            ProjectsPage = new ProjectsPage(Driver);
+            SettingsProjetsPage = new SettingsProjetsPage(Driver);
 
             // Init Allure
             _allure = AllureLifecycle.Instance;
