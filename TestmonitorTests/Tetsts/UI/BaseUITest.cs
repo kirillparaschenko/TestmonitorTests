@@ -18,8 +18,7 @@ namespace TestmonitorTests.Tetsts.UI
         protected IWebDriver Driver;
         private AllureLifecycle _allure;
         protected LoginSteps LoginSteps;
-        protected ProjectsPage ProjectsPage;
-        protected SettingsProjetsPage SettingsProjetsPage;
+        protected CreateProjectSteps CreateProjectSteps;
 
         [SetUp]
         public void Setup()
@@ -28,8 +27,7 @@ namespace TestmonitorTests.Tetsts.UI
 
             // Init Steps
             LoginSteps = new LoginSteps(Driver);
-            ProjectsPage = new ProjectsPage(Driver);
-            SettingsProjetsPage = new SettingsProjetsPage(Driver);
+            CreateProjectSteps = new CreateProjectSteps(Driver);
 
             // Init Allure
             _allure = AllureLifecycle.Instance;

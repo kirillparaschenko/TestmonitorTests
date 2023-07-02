@@ -14,12 +14,12 @@ namespace TestmonitorTests.Models
             project = new Project();
         }
 
-        public ProjectBuilder SetUsername(string name)
+        public ProjectBuilder SetProjectName(string name)
         {
             project.Name = name;
             return this;
         }
-        public ProjectBuilder SetPassword(string description)
+        public ProjectBuilder SetProjectDescription(string description)
         {
             project.Description = description;
             return this;

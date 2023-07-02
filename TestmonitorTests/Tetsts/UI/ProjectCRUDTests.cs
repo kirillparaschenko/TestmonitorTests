@@ -30,7 +30,12 @@ namespace TestmonitorTests.Tetsts.UI
         [Test]
         public void CreationProjectTest()
         {
-            ProjectsPage.OpenSettingsProjetsPage();
+            Project project = new ProjectBuilder()
+                .SetProjectName("Smoke Test")
+                .SetProjectDescription("Smoke test description")
+                .Build();
+
+            CreateProjectSteps.CreateProject(project);
         }
     }
 }

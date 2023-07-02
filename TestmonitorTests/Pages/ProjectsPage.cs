@@ -38,9 +38,10 @@ namespace TestmonitorTests.Pages
             return new Button(Driver, ManageProjectsButtonBy);
         }
 
-        public void OpenSettingsProjetsPage()
+        public SettingsProjetsPage OpenSettingsProjetsPage()
         {
             ManageProjectsButton().Click();
+            return new SettingsProjetsPage(Driver);
         }
     }
 }
