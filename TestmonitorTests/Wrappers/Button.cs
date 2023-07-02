@@ -23,4 +23,3 @@ namespace TestmonitorTests.Wrappers
         public bool Displayed => _uiElement.Displayed;
     }
 }
-}
