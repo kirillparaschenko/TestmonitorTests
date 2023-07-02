@@ -14,6 +14,7 @@ namespace TestmonitorTests.Pages
 
         //Locators
         private readonly By CreateProjectButtonBy = By.CssSelector("button.is-primary");
+        private readonly By ProjectCardBy = By.ClassName("card-content");
 
         public SettingsProjetsPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
         {
@@ -34,6 +35,11 @@ namespace TestmonitorTests.Pages
         public Button CreateProjectButton()
         {
             return new Button(Driver, CreateProjectButtonBy);
+        }
+
+        public UIElement ProjectCard()
+        {
+            return new UIElement(Driver, ProjectCardBy);
         }
     }
 }

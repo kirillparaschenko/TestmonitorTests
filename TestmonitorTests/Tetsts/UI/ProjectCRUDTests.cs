@@ -36,6 +36,8 @@ namespace TestmonitorTests.Tetsts.UI
                 .Build();
 
             CreateProjectSteps.CreateProject(project);
+
+            //Assert.AreEqual(project.Name, Driver.FindElement(By.ClassName("media-content")).Text);
         }
     }
 }
