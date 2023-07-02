@@ -33,4 +33,5 @@ namespace TestmonitorTests.Pages
             Driver.Navigate().GoToUrl(Configurator.AppSettings.URL + GetEndpoint());
         }
     }
+
 }

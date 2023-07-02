@@ -10,13 +10,13 @@ namespace TestmonitorTests.Pages
 {
     public class LoginPage : BasePage
     {
-        private static string END_POINT = "";
+        private string END_POINT = "";
 
         // Locators
-        private static readonly By EmailInputBy = By.Id("email");
-        private static readonly By PswInputBy = By.Id("password");
-        private static readonly By RememberMeCheckboxBy = By.Name("remember");
-        private static readonly By LoginInButtonBy = By.ClassName("button is-primary is-fullwidth");
+        private readonly By EmailInputBy = By.Name("email");
+        private readonly By PswInputBy = By.Name("password");
+        private readonly By RememberMeCheckboxBy = By.Name("remember");
+        private readonly By LoginInButtonBy = By.ClassName("button");
 
         public LoginPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
         {

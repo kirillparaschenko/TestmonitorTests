@@ -18,6 +18,11 @@ namespace TestmonitorTests.Steps
         {
         }
 
+        public LoginPage NavigateToLoginPage()
+        {
+            return new LoginPage(Driver, true);
+        }
+
         public ProjectsPage SuccessfulLogin(string username, string psw)
         {
             Login(username, psw);
@@ -27,12 +32,14 @@ namespace TestmonitorTests.Steps
         public ProjectsPage SuccessfulLogin(User user)
         {
             return SuccessfulLogin(user.Username, user.Password);
+            _logger.Info("Success login");
         }
 
         public LoginPage IncorrectLogin(User user)
         {
             Login(user.Username, user.Password);
             return LoginPage;
+            _logger.Info("Incorrect login");
         }
 
         private void Login(string username, string psw)
