@@ -92,6 +92,8 @@ namespace TestmonitorTests.Utilities.Configuration
 
         public static User? UserByUsername(string username) => Users.Find(x => x?.Username == username);
 
+        public static string? Bearer => Configuration[nameof(Bearer)];
+
         public static string? BrowserType => Configuration[nameof(BrowserType)];
     }
 }
