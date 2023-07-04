@@ -31,13 +31,13 @@ namespace TestmonitorTests.Tetsts.UI
         public void CreationProjectTest()
         {
             Project project = new ProjectBuilder()
-                .SetProjectName("Smoke Test")
-                .SetProjectDescription("Smoke test description")
+                .SetProjectName("Regression Test")
+                .SetProjectDescription("Regression test description")
                 .Build();
 
             CreateProjectSteps.CreateProject(project);
 
-            //Assert.AreEqual(project.Name, Driver.FindElement(By.ClassName("media-content")).Text);
+            Assert.AreEqual(project.Name, Driver.FindElements(By.ClassName("media-content")).Last().Text);
         }
     }
 }
