@@ -63,7 +63,7 @@ namespace TestmonitorTests.Core
             return response;
         }
 
-        public async Task<T> ExecuteAsync<T>(RestRequest request) where T : new()
+        public async Task<T> ExecuteAsync<T>(RestRequest request)
         {
             _logger.Info("Request: " + request.Resource);
             var response = await _restClient.ExecuteAsync<T>(request);
