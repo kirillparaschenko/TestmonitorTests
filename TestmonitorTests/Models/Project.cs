@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace TestmonitorTests.Models
 {
-    public record User
+    public class Project
     {
-        public string? Username { get; set; }
-        public string? Password { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
     }
 }
