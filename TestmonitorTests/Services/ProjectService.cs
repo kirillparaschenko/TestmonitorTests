@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using Microsoft.VisualStudio.TestPlatform.ObjectModel;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,5 +43,15 @@ namespace TestmonitorTests.Services
 
             return await _apiClient.ExecuteAsync<Project>(request);
         }
+
+        public async Task<Project> PostProjectAsync(ProjectData project)
+        {
+            var request = new RestRequest(POST_PROJECT, Method.Post)
+                .AddHeader("Content-Type", "application/json")
+                .AddBody(project);
+
+            return await _apiClient.ExecuteAsync<Project>(request);
+        }
+
     }
 }
