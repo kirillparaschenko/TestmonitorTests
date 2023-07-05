@@ -13,18 +13,24 @@ namespace TestmonitorTests.Tetsts.API
         public void GetValidProjectTest()
         {
             //Action
-            var actualProject = _projectService.GetProjectAsync("4");
+            var actualProject = _projectService.GetAsProjectAsync("4");
 
             //Assertion
-            Assert.AreEqual(actualProject.Result.Name, "123");
+            Assert.AreEqual(actualProject.Result.ProjectData.Name, "123");
         }
 
         [Test]
         public void GetNotValidProjectTest()
         {
             //Action
-            var actualProject = _projectService.GetProjectAsync("-1");
+            var actualProject = _projectService.GetProjectAsync("0");
 
+            //Assertion
+            Assert.Multiple(() =>
+            {
+                Assert.AreEqual(actualProject.Result.StatusCode.ToString(), "NotFound");
+                Assert.AreEqual(actualProject.Result.Content.ToString(), "{\n    \"message\": \"No query results for model [App\\\\Models\\\\Project] \"\n}");
+            });
         }
 
         [Test]
@@ -35,10 +41,19 @@ namespace TestmonitorTests.Tetsts.API
             {
                 Name = "ApiAutoTest",
                 Description = "ApiAutoTest Description",
+                SymbolId = 1
             };
 
             //Action
             var actualProject = _projectService.PostProjectAsync(testProject);
+
+            //Assertion
+            Assert.Multiple(() =>
+            {
+                Assert.AreEqual(actualProject.Result.ProjectData.Name, testProject.Name);
+                Assert.AreEqual(actualProject.Result.ProjectData.Description, testProject.Description);
+                Assert.AreEqual(actualProject.Result.ProjectData.SymbolId, testProject.SymbolId);
+            });
         }
 
         [Test]
@@ -48,12 +63,18 @@ namespace TestmonitorTests.Tetsts.API
             var testProject = new ProjectData()
             {
                 Description = "ApiAutoTest Description",
+                SymbolId = 1
             };
 
             //Action
             var actualProject = _projectService.PostProjectAsync(testProject);
 
             //Assert
+            Assert.Multiple(() =>
+            {
+                //Assert.AreEqual(actualProject.Result, "NotFound");
+                //Assert.AreEqual(actualProject.Content.ToString(), "{\n    \"message\": \"No query results for model [App\\\\Models\\\\Project] \"\n}");
+            });
         }
     }
 }

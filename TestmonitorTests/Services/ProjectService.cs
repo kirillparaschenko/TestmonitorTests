@@ -36,7 +36,15 @@ namespace TestmonitorTests.Services
             return _apiClient.Execute<Project>(request);
         }
 
-        public async Task<Project> GetProjectAsync(string projectId)
+        public async Task<RestResponse> GetProjectAsync(string projectId)
+        {
+            var request = new RestRequest(GET_PROJECT)
+                .AddUrlSegment("project_id", projectId);
+
+            return await _apiClient.ExecuteAsync(request);
+        }
+
+        public async Task<Project> GetAsProjectAsync(string projectId)
         {
             var request = new RestRequest(GET_PROJECT)
                 .AddUrlSegment("project_id", projectId);

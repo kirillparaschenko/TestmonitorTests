@@ -12,5 +12,6 @@ namespace TestmonitorTests.Models
         public int Id { get; set; }
         [JsonPropertyName("name")] public string Name { get; set; }
         [JsonPropertyName("description")] public string Description { get; set; }
+        [JsonPropertyName("symbol_id")] public int SymbolId { get; set; }
     }
 }
