@@ -45,7 +45,7 @@ namespace TestmonitorTests.Tetsts.API
             };
 
             //Action
-            var actualProject = _projectService.PostProjectAsync(testProject);
+            var actualProject = _projectService.PostProjectAsProjectAsync(testProject);
 
             //Assertion
             Assert.Multiple(() =>
@@ -72,8 +72,8 @@ namespace TestmonitorTests.Tetsts.API
             //Assert
             Assert.Multiple(() =>
             {
-                //Assert.AreEqual(actualProject.Result, "NotFound");
-                //Assert.AreEqual(actualProject.Content.ToString(), "{\n    \"message\": \"No query results for model [App\\\\Models\\\\Project] \"\n}");
+                Assert.AreEqual(actualProject.Result.StatusCode.ToString(), "UnprocessableEntity");
+                Assert.AreEqual(actualProject.Result.Content.ToString(), "{\"message\":\"The name field is required.\",\"errors\":{\"name\":[\"The name field is required.\"]}}");
             });
         }
     }

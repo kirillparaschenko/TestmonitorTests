@@ -52,13 +52,22 @@ namespace TestmonitorTests.Services
             return await _apiClient.ExecuteAsync<Project>(request);
         }
 
-        public async Task<Project> PostProjectAsync(ProjectData project)
+        public async Task<Project> PostProjectAsProjectAsync(ProjectData project)
         {
             var request = new RestRequest(POST_PROJECT, Method.Post)
                 .AddHeader("Content-Type", "application/json")
                 .AddBody(project);
 
             return await _apiClient.ExecuteAsync<Project>(request);
+        }
+
+        public async Task<RestResponse> PostProjectAsync(ProjectData project)
+        {
+            var request = new RestRequest(POST_PROJECT, Method.Post)
+                .AddHeader("Content-Type", "application/json")
+                .AddBody(project);
+
+            return await _apiClient.ExecuteAsync(request);
         }
 
     }
