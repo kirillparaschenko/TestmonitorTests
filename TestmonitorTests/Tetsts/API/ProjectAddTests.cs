@@ -7,32 +7,8 @@ using TestmonitorTests.Models;
 
 namespace TestmonitorTests.Tetsts.API
 {
-    public class ProjectTests : BaseApiTest
+    public class ProjectAddTests : BaseApiTest
     {
-        [Test]
-        public void GetValidProjectTest()
-        {
-            //Action
-            var actualProject = _projectService.GetAsProjectAsync("4");
-
-            //Assertion
-            Assert.AreEqual(actualProject.Result.ProjectData.Name, "123");
-        }
-
-        [Test]
-        public void GetNotValidProjectTest()
-        {
-            //Action
-            var actualProject = _projectService.GetProjectAsync("0");
-
-            //Assertion
-            Assert.Multiple(() =>
-            {
-                Assert.AreEqual(actualProject.Result.StatusCode.ToString(), "NotFound");
-                Assert.AreEqual(actualProject.Result.Content.ToString(), "{\n    \"message\": \"No query results for model [App\\\\Models\\\\Project] \"\n}");
-            });
-        }
-
         [Test]
         public void AddProjectTest()
         {
