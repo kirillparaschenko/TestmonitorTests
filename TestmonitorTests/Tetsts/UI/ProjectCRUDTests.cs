@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TestmonitorTests.Core;
 using TestmonitorTests.Models;
+using TestmonitorTests.Pages;
 using TestmonitorTests.Steps;
 using TestmonitorTests.Utilities.Configuration;
 
@@ -15,6 +16,8 @@ namespace TestmonitorTests.Tetsts.UI
 {
     public class ProjectCRUDTests : BaseUITest
     {
+        public SettingsProjetsPage SettingsProjetsPage => new SettingsProjetsPage(Driver);
+
         [SetUp]
         public void CreateUser()
         {
@@ -35,9 +38,15 @@ namespace TestmonitorTests.Tetsts.UI
                 .SetProjectDescription("Regression test description")
                 .Build();
 
-            CreateProjectSteps.CreateProject(project);
+            ProjectSteps.CreateProject(project);
 
-            Assert.AreEqual(project.Name, Driver.FindElements(By.ClassName("media-content")).Last().Text);
+            Assert.AreEqual(project.Name, SettingsProjetsPage.FindLastProject().Text);
+        }
+
+        [Test]
+        public void ArchivinProjectTest()
+        {
+            ProjectSteps.ArchieveProject();
         }
     }
 }

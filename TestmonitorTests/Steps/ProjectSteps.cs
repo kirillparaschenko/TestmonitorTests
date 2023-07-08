@@ -9,9 +9,9 @@ using TestmonitorTests.Pages;
 
 namespace TestmonitorTests.Steps
 {
-    public class CreateProjectSteps : BaseStep
+    public class ProjectSteps : BaseStep
     {
-        public CreateProjectSteps(IWebDriver driver) : base(driver)
+        public ProjectSteps(IWebDriver driver) : base(driver)
         {
         }
 
@@ -23,6 +23,13 @@ namespace TestmonitorTests.Steps
             CreateProjectModal.FeaturetButton().Click();
             CreateProjectModal.FeaturetButton().Click();
             CreateProjectModal.FeaturetButton().Click();
+            return SettingsProjetsPage;
+        }
+
+        public SettingsProjetsPage ArchieveProject()
+        {
+            ProjectsPage.OpenSettingsProjetsPage();
+            SettingsProjetsPage.FindLastProject().Click();
             return SettingsProjetsPage;
         }
 
