@@ -14,7 +14,7 @@ using TestmonitorTests.Utilities.Configuration;
 
 namespace TestmonitorTests.Tetsts.UI
 {
-    public class ProjectCRUDTests : BaseUITest
+    public class ProjectTests : BaseUITest
     {
         public SettingsProjetsPage SettingsProjetsPage => new SettingsProjetsPage(Driver);
 

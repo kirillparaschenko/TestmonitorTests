@@ -46,7 +46,6 @@ namespace TestmonitorTests.Pages
 
         public IWebElement FindLastProject()
         {
-            //WaitService.ExistsElement(ProjectCardBy);
             return ProjectCards().FindElements(ProjectCardBy).Last();
         }
     }
