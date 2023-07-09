@@ -17,36 +17,45 @@ namespace TestmonitorTests.Tetsts.UI
     public class ProjectTests : BaseUITest
     {
         public SettingsProjetsPage SettingsProjetsPage => new SettingsProjetsPage(Driver);
+        Project project;
 
         [SetUp]
         public void CreateUser()
         {
             User user = new UserBuilder()
-                .SetUsername(Configurator.UserByUsername("k.paraschenko@gmail.com").Username)
-                .SetPassword(Configurator.UserByUsername("k.paraschenko@gmail.com").Password)
+                .SetUsername(Configurator.UserByUsername("k.paraschenko+1@gmail.com").Username)
+                .SetPassword(Configurator.UserByUsername("k.paraschenko+1@gmail.com").Password)
                 .Build();
 
             LoginSteps.NavigateToLoginPage();
             LoginSteps.SuccessfulLogin(user);
         }
 
-        [Test]
+        [Test, Order(1)]
         public void CreationProjectTest()
         {
-            Project project = new ProjectBuilder()
+            //TestData
+            project = new ProjectBuilder()
                 .SetProjectName("Regression Test")
                 .SetProjectDescription("Regression test description")
                 .Build();
 
+            //Action
             ProjectSteps.CreateProject(project);
-
+            
+            //Assertion
             Assert.AreEqual(project.Name, SettingsProjetsPage.FindLastProject().Text);
         }
 
-        [Test]
-        public void ArchivinProjectTest()
+        [Test, Order(2)]
+        public void ArchivingProjectTest()
         {
+            //Action
             ProjectSteps.ArchieveProject();
+
+            //Assertion
+            Assert.AreNotEqual(project.Name, SettingsProjetsPage.FindLastProject().Text);
+            
         }
     }
 }

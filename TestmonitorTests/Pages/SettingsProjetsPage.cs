@@ -16,7 +16,7 @@ namespace TestmonitorTests.Pages
         //Locators
         private readonly By CreateProjectButtonBy = By.CssSelector("button.is-primary");
         private readonly By ProjectsTabBy = By.Id("active-content");
-        private readonly By ProjectCardBy = By.CssSelector($"a[href^='{Configurator.AppSettings.URL + END_POINT}']");
+        private readonly By ProjectCardBy = By.ClassName("media-content");
 
         public SettingsProjetsPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
         {

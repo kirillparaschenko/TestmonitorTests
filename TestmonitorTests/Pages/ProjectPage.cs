@@ -13,7 +13,10 @@ namespace TestmonitorTests.Pages
         private string END_POINT = "settings/projects/{id}";
 
         //Locators
-        private readonly By DropdownButtonBy = By.CssSelector("dropdown-component");
+        private readonly By DropdownButtonBy = By.CssSelector(".level-right .dropdown-trigger");
+        private readonly By ArchiveOptionBy = By.XPath(
+            "//a[@class='dropdown-item']//*[contains(text(), 'Archive...')]");
+        private readonly By ArchiveButtonBy = By.CssSelector(".modal-card .button.is-danger");
 
         public ProjectPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
         {
@@ -31,9 +34,26 @@ namespace TestmonitorTests.Pages
             return END_POINT;
         }
 
-        public UIElement DropdownButton()
+        public Button DropdownButton()
         {
-            return new UIElement(Driver, DropdownButtonBy);
+            return new Button(Driver, DropdownButtonBy);
+        }
+
+        public UIElement ArchiveOption()
+        {
+            return new UIElement(Driver, ArchiveOptionBy);
+        }
+
+        public Button ArchiveButton()
+        {
+            return new Button(Driver, ArchiveButtonBy);
+        }
+
+        public void ArchiveProject()
+        {
+            DropdownButton().Click();
+            ArchiveOption().Click();
+            ArchiveButton().Click();
         }
     }
 }
