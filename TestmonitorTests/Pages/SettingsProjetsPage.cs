@@ -17,6 +17,7 @@ namespace TestmonitorTests.Pages
         private readonly By CreateProjectButtonBy = By.CssSelector("button.is-primary");
         private readonly By ProjectsTabBy = By.Id("active-content");
         private readonly By ProjectCardBy = By.ClassName("media-content");
+        private readonly By ProjectIsCreatedPopUpBy = By.CssSelector("div[role~='alert']");
 
         public SettingsProjetsPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
         {
@@ -47,6 +48,11 @@ namespace TestmonitorTests.Pages
         public IWebElement FindLastProject()
         {
             return ProjectCards().FindElements(ProjectCardBy).Last();
+        }
+
+        public UIElement ProjectIsCreatedPopUp()
+        {
+            return new UIElement(Driver, ProjectIsCreatedPopUpBy);
         }
     }
 }
