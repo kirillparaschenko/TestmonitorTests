@@ -6,11 +6,11 @@ UI Tests
     - Verify that pop up message is displayed after creating project;
     - Verify creation project;
     - Verify deletion of project;
-    - Verify that dialog window Add Requirement is displayed;
+    - Verify that dialog window Create Project is displayed;
     - Verify that file is uploaded on the issue page.
  - Negative:
     - Verify that user can't login with invalid credentials;
-    - Verify that Test suite is removed;
+    - Verify that dialog window Create Project is closed (artificial bug);
 
 API Tests
 - Verify that GET https://mydomain.testmonitor.com/api/v1/projects/{projectId} Request returns correct response with project parameters
