@@ -17,6 +17,7 @@ namespace TestmonitorTests.Pages
         private readonly By PswInputBy = By.Name("password");
         private readonly By RememberMeCheckboxBy = By.Name("remember");
         private readonly By LoginInButtonBy = By.ClassName("button");
+        private readonly By IncorrectLoginMessageBy = By.CssSelector("div[class~='message-body']");
 
         public LoginPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
         {
@@ -55,6 +56,11 @@ namespace TestmonitorTests.Pages
         public Button LoginInButton()
         {
             return new Button(Driver, LoginInButtonBy);
+        }
+
+        public UIElement IncorrectLoginMessage()
+        {
+            return new UIElement (Driver, IncorrectLoginMessageBy);
         }
     }
 }

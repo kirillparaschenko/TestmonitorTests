@@ -31,7 +31,7 @@ namespace TestmonitorTests.Tetsts.UI
             LoginSteps.SuccessfulLogin(user);
         }
 
-        [Test, Order(1)]
+        [Test, Category("Positive"), Order(1)]
         public void CreationProjectTest()
         {
             //TestData
@@ -47,7 +47,7 @@ namespace TestmonitorTests.Tetsts.UI
             Assert.AreEqual(project.Name, SettingsProjetsPage.FindLastProject().Text);
         }
 
-        [Test, Order(2)]
+        [Test, Category("Positive"), Order(2)]
         public void ArchivingProjectTest()
         {
             //Action

@@ -27,7 +27,7 @@ namespace TestmonitorTests.Pages
 
         public override bool IsPageOpened()
         {
-            return WaitService.GetVisibleElement(FeaturetButtonBy) != null;
+            return WaitService.GetVisibleElement(CancelButtonBy) != null;
         }
 
         protected override string GetEndpoint()
