@@ -34,5 +34,11 @@ namespace TestmonitorTests.Steps
             return SettingsProjetsPage;
         }
 
+        public CreateProjectModal OpenCreateProjectModal()
+        {
+            ProjectsPage.OpenSettingsProjetsPage();
+            SettingsProjetsPage.CreateProjectButton().Click();
+            return CreateProjectModal;
+        }
     }
 }

@@ -28,5 +28,19 @@ namespace TestmonitorTests.Tetsts.UI
                 Assert.AreEqual(SettingsProjetsPage.ProjectIsCreatedPopUp().Text, $"Project {project.Name} created");
             });
         }
+
+        [Test]
+        public void VerifyCreateProjectModalTest()
+        {
+            //Action
+            ProjectSteps.OpenCreateProjectModal();
+
+            //Assertion
+            Assert.Multiple(() =>
+            {
+                Assert.IsTrue(SettingsProjetsPage.CreateProjectModal().Displayed);
+                Assert.IsTrue(SettingsProjetsPage.CreateProjectModal().Text.Contains($"Create project"));
+            });
+        }
     }
 }

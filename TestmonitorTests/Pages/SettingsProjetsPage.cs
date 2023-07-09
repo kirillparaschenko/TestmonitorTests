@@ -18,6 +18,7 @@ namespace TestmonitorTests.Pages
         private readonly By ProjectsTabBy = By.Id("active-content");
         private readonly By ProjectCardBy = By.ClassName("media-content");
         private readonly By ProjectIsCreatedPopUpBy = By.CssSelector("div[role~='alert']");
+        private readonly By CreateProjectModalBy = By.CssSelector("div[class~='modal-card']");
 
         public SettingsProjetsPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
         {
@@ -53,6 +54,11 @@ namespace TestmonitorTests.Pages
         public UIElement ProjectIsCreatedPopUp()
         {
             return new UIElement(Driver, ProjectIsCreatedPopUpBy);
+        }
+
+        public UIElement CreateProjectModal()
+        {
+            return new UIElement(Driver, CreateProjectModalBy);
         }
     }
 }
