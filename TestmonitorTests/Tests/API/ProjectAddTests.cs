@@ -9,7 +9,7 @@ namespace TestmonitorTests.Tetsts.API
 {
     public class ProjectAddTests : BaseApiTest
     {
-        [Test]
+        [Test, Order(1)]
         public void AddProjectTest()
         {
             //TestData
@@ -32,7 +32,7 @@ namespace TestmonitorTests.Tetsts.API
             });
         }
 
-        [Test]
+        [Test, Order(2)]
         public void AddProjectWithoutName()
         {
             //TestData

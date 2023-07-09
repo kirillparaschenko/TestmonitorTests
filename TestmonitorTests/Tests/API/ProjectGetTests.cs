@@ -13,10 +13,10 @@ namespace TestmonitorTests.Tetsts.API
         public void GetValidProjectTest()
         {
             //Action
-            var actualProject = _projectService.GetAsProjectAsync("4");
+            var actualProject = _projectService.GetAsProjectAsync("1");
 
             //Assertion
-            Assert.AreEqual(actualProject.Result.ProjectData.Name, "123");
+            Assert.AreEqual(actualProject.Result.ProjectData.Name, "My first project");
         }
 
         [Test]
