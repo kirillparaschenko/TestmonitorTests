@@ -43,7 +43,7 @@ namespace TestmonitorTests.Tetsts.UI
             });
         }
 
-        [Test, Category("Positive"), Description("Artificial bug")]
+        [Test, Category("Negative"), Description("Artificial bug")]
         public void CloseProjectModalTest()
         {
             //Action
