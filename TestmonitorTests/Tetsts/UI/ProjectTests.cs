@@ -55,7 +55,6 @@ namespace TestmonitorTests.Tetsts.UI
 
             //Assertion
             Assert.AreNotEqual(project.Name, SettingsProjetsPage.FindLastProject().Text);
-            
         }
     }
 }

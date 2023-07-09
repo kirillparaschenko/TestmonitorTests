@@ -16,14 +16,17 @@ namespace TestmonitorTests.Tetsts.UI
         [Test, Category("Negative")]
         public void LoginWithInvalidPasswordTest()
         {
+            //Test data
             User user = new UserBuilder()
                 .SetUsername(Configurator.UserByUsername("k.paraschenko+1@gmail.com").Username)
                 .SetPassword("Qweerty123")
                 .Build();
 
+            //Action
             LoginSteps.NavigateToLoginPage();
             LoginSteps.IncorrectLogin(user);
 
+            //Assertions
             Assert.Multiple(() =>
             {
                 Assert.AreEqual(LoginPage.IncorrectLoginMessage().Text, "These credentials do not match our records.");

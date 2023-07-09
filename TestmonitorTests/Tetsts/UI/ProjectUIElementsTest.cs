@@ -9,7 +9,7 @@ namespace TestmonitorTests.Tetsts.UI
 {
     public class ProjectUIElementsTest : ProjectTests
     {
-        [Test]
+        [Test, Category("Positive")]
         public void VerifyPopUpMessageProjectCreatedTest()
         {
             //TestData
@@ -29,7 +29,7 @@ namespace TestmonitorTests.Tetsts.UI
             });
         }
 
-        [Test]
+        [Test, Category("Positive")]
         public void VerifyCreateProjectModalTest()
         {
             //Action
@@ -42,5 +42,16 @@ namespace TestmonitorTests.Tetsts.UI
                 Assert.IsTrue(SettingsProjetsPage.CreateProjectModal().Text.Contains($"Create project"));
             });
         }
+
+        [Test, Category("Positive"), Description("Artificial bug")]
+        public void CloseProjectModalTest()
+        {
+            //Action
+            ProjectSteps.CloseCreateProjectModal();
+
+            //Assertion
+            Assert.IsFalse(SettingsProjetsPage.CreateProjectModal().Displayed);
+        }
+
     }
 }

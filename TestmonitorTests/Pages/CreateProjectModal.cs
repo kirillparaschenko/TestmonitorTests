@@ -17,7 +17,8 @@ namespace TestmonitorTests.Pages
         private readonly By NameInputBy = By.Name("name");
         private readonly By DescriptionInputBy = By.Name("description");
         private readonly By FeaturetButtonBy = By.CssSelector(".modal-card .button.is-primary");
-        private readonly By CancelButtonBy = By.CssSelector(".modal-card. button.is-white");
+        private readonly By CancelButtonBy = By.CssSelector(".columns .dropdown-trigger"); //Artificial bug: true locator By.CssSelector(".modal-card. button.is-white")
+        private readonly By CloseButtonBy = By.CssSelector(".modal-card. modal-close.is-large");
 
         public CreateProjectModal(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
         {
@@ -53,6 +54,11 @@ namespace TestmonitorTests.Pages
         public Button CancelButton()
         {
             return new Button(Driver, CancelButtonBy);
+        }
+
+        public Button CloseButton()
+        {
+            return new Button(Driver, CloseButtonBy);
         }
 
         public void FillCreateProjectForm(Project project)

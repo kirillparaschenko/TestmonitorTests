@@ -1,5 +1,6 @@
 ﻿using Allure.Commons;
 using NLog;
+using NUnit.Allure.Core;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using System;
@@ -13,6 +14,7 @@ using TestmonitorTests.Steps;
 
 namespace TestmonitorTests.Tetsts.UI
 {
+    [AllureNUnit]
     public class BaseUITest
     {
         protected IWebDriver Driver;
