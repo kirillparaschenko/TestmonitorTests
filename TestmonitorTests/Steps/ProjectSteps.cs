@@ -26,7 +26,7 @@ namespace TestmonitorTests.Steps
             return SettingsProjetsPage;
         }
 
-        public SettingsProjetsPage ArchieveProject()
+        public SettingsProjetsPage ArchieveLastProject()
         {
             ProjectsPage.OpenSettingsProjetsPage();
             SettingsProjetsPage.OpenLastProject();

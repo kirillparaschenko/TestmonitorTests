@@ -51,19 +51,19 @@ namespace TestmonitorTests.Tetsts.UI
         public void ArchivingProjectTest()
         {
             //Action
-            ProjectSteps.ArchieveProject();
+            ProjectSteps.ArchieveLastProject();
 
             //Assertion
             Assert.AreNotEqual(project.Name, SettingsProjetsPage.LastProjectCard().Text);
         }
 
-        [Test, Category("Positive")]
+        [Test, Category("Positive"), Order(5)]
         public void VerifyPopUpMessageProjectCreatedTest()
         {
             //TestData
-            Project project = new ProjectBuilder()
-                .SetProjectName("Regression Test")
-                .SetProjectDescription("Regression test description")
+            project = new ProjectBuilder()
+                .SetProjectName("Regression Test PopUp")
+                .SetProjectDescription("Regression test description PopUp")
                 .Build();
 
             //Action
@@ -77,7 +77,7 @@ namespace TestmonitorTests.Tetsts.UI
             });
         }
 
-        [Test, Category("Positive")]
+        [Test, Category("Positive"), Order(3)]
         public void VerifyCreateProjectModalTest()
         {
             //Action
@@ -91,7 +91,7 @@ namespace TestmonitorTests.Tetsts.UI
             });
         }
 
-        [Test, Category("Negative"), Description("Artificial bug")]
+        [Test, Category("Negative"), Description("Artificial bug"), Order(4)]
         public void CloseProjectModalTest()
         {
             //Action

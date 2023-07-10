@@ -46,14 +46,14 @@ namespace TestmonitorTests.Pages
             return new UIElement(Driver, ProjectsTabBy);
         }
 
-        public IWebElement LastProjectCard()
+        public UIElement LastProjectCard()
         {
-           return ProjectCards().FindElements(ProjectCardBy).Last();
+            return new UIElement(Driver, ProjectCards().FindElements(ProjectCardBy).Last());
         }
 
         public UIElement ProjectIsCreatedPopUp()
         {
-            return new UIElement(Driver, ProjectIsCreatedPopUpBy);
+            return new UIElement(Driver, WaitService!.GetVisibleElement(ProjectIsCreatedPopUpBy));
         }
 
         public UIElement CreateProjectModal()
@@ -61,9 +61,11 @@ namespace TestmonitorTests.Pages
             return new UIElement(Driver, CreateProjectModalBy);
         }
 
+        //public bool Check
+
         public void OpenLastProject()
         {
-            ProjectCards().FindElements(ProjectCardBy).Last().Click();
+            LastProjectCard().Click();
         }
     }
 }
