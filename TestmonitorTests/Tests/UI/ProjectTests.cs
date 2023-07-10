@@ -44,7 +44,7 @@ namespace TestmonitorTests.Tetsts.UI
             ProjectSteps.CreateProject(project);
             
             //Assertion
-            Assert.AreEqual(project.Name, SettingsProjetsPage.FindLastProject().Text);
+            Assert.AreEqual(project.Name, SettingsProjetsPage.LastProjectCard().Text);
         }
 
         [Test, Category("Positive"), Order(2)]
@@ -54,7 +54,51 @@ namespace TestmonitorTests.Tetsts.UI
             ProjectSteps.ArchieveProject();
 
             //Assertion
-            Assert.AreNotEqual(project.Name, SettingsProjetsPage.FindLastProject().Text);
+            Assert.AreNotEqual(project.Name, SettingsProjetsPage.LastProjectCard().Text);
+        }
+
+        [Test, Category("Positive")]
+        public void VerifyPopUpMessageProjectCreatedTest()
+        {
+            //TestData
+            Project project = new ProjectBuilder()
+                .SetProjectName("Regression Test")
+                .SetProjectDescription("Regression test description")
+                .Build();
+
+            //Action
+            ProjectSteps.CreateProject(project);
+
+            //Assertion
+            Assert.Multiple(() =>
+            {
+                Assert.IsTrue(SettingsProjetsPage.ProjectIsCreatedPopUp().Displayed);
+                Assert.AreEqual(SettingsProjetsPage.ProjectIsCreatedPopUp().Text, $"Project {project.Name} created");
+            });
+        }
+
+        [Test, Category("Positive")]
+        public void VerifyCreateProjectModalTest()
+        {
+            //Action
+            ProjectSteps.OpenCreateProjectModal();
+
+            //Assertion
+            Assert.Multiple(() =>
+            {
+                Assert.IsTrue(SettingsProjetsPage.CreateProjectModal().Displayed);
+                Assert.IsTrue(SettingsProjetsPage.CreateProjectModal().Text.Contains($"Create project"));
+            });
+        }
+
+        [Test, Category("Negative"), Description("Artificial bug")]
+        public void CloseProjectModalTest()
+        {
+            //Action
+            ProjectSteps.CloseCreateProjectModal();
+
+            //Assertion
+            Assert.IsFalse(SettingsProjetsPage.CreateProjectModal().Displayed);
         }
     }
 }

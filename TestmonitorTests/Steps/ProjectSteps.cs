@@ -29,7 +29,7 @@ namespace TestmonitorTests.Steps
         public SettingsProjetsPage ArchieveProject()
         {
             ProjectsPage.OpenSettingsProjetsPage();
-            SettingsProjetsPage.FindLastProject().Click();
+            SettingsProjetsPage.OpenLastProject();
             ProjectPage.ArchiveProject();
             return SettingsProjetsPage;
         }

@@ -46,9 +46,9 @@ namespace TestmonitorTests.Pages
             return new UIElement(Driver, ProjectsTabBy);
         }
 
-        public IWebElement FindLastProject()
+        public IWebElement LastProjectCard()
         {
-            return ProjectCards().FindElements(ProjectCardBy).Last();
+           return ProjectCards().FindElements(ProjectCardBy).Last();
         }
 
         public UIElement ProjectIsCreatedPopUp()
@@ -59,6 +59,11 @@ namespace TestmonitorTests.Pages
         public UIElement CreateProjectModal()
         {
             return new UIElement(Driver, CreateProjectModalBy);
+        }
+
+        public void OpenLastProject()
+        {
+            ProjectCards().FindElements(ProjectCardBy).Last().Click();
         }
     }
 }
