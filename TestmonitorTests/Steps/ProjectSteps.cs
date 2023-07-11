@@ -33,6 +33,7 @@ namespace TestmonitorTests.Steps
             ProjectsPage.OpenSettingsProjetsPage();
             SettingsProjetsPage.OpenLastProject();
             ProjectPage.ArchiveProject();
+
             return SettingsProjetsPage;
         }
 
