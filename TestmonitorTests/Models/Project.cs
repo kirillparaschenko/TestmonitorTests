@@ -9,7 +9,9 @@ namespace TestmonitorTests.Models
 {
     public class Project
     {
-        [JsonPropertyName("data")] public ProjectData ProjectData { get; set; }
+        [JsonPropertyName("data")] 
+        public ProjectData ProjectData { get; set; }
+
         public string Name { get; set; }
         public string Description { get; set; }
     }

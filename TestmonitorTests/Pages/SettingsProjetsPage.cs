@@ -61,8 +61,6 @@ namespace TestmonitorTests.Pages
             return new UIElement(Driver, CreateProjectModalBy);
         }
 
-        //public bool Check
-
         public void OpenLastProject()
         {
             LastProjectCard().Click();

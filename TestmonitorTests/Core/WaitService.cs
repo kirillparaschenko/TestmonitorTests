@@ -43,7 +43,7 @@ namespace TestmonitorTests.Core
         {
             var fluentWait = new DefaultWait<IWebDriver?>(_driver);
             fluentWait.Timeout = TimeSpan.FromSeconds(5);
-            fluentWait.PollingInterval = TimeSpan.FromMilliseconds(1000);
+            fluentWait.PollingInterval = TimeSpan.FromMilliseconds(500);
             fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException));
 
             return fluentWait.Until(ExpectedConditions.ElementIsVisible(by));
