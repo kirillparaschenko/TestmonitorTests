@@ -15,9 +15,10 @@ using TestmonitorTests.Steps;
 namespace TestmonitorTests.Tetsts.UI
 {
     [AllureNUnit]
+    [Parallelizable(ParallelScope.Fixtures)]
     public class BaseUITest
     {
-        protected IWebDriver Driver;
+        [ThreadStatic] protected IWebDriver Driver;
         private AllureLifecycle _allure;
         protected LoginSteps LoginSteps;
         protected ProjectSteps ProjectSteps;

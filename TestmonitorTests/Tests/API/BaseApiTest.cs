@@ -8,6 +8,7 @@ using TestmonitorTests.Services;
 
 namespace TestmonitorTests.Tetsts.API
 {
+    [Parallelizable(ParallelScope.Fixtures)]
     public class BaseApiTest
     {
         protected ApiClient _apiClient;

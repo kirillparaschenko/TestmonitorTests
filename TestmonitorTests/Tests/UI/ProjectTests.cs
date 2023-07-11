@@ -58,7 +58,7 @@ namespace TestmonitorTests.Tetsts.UI
             Assert.AreNotEqual(project.Name, SettingsProjetsPage.LastProjectCard().Text);
         }
 
-        [Test, Category("Positive"), Order(5)]
+        [Test, Category("Positive"), Order(3)]
         public void VerifyPopUpMessageProjectCreatedTest()
         {
             //TestData
@@ -78,7 +78,7 @@ namespace TestmonitorTests.Tetsts.UI
             });
         }
 
-        [Test, Category("Positive"), Order(3)]
+        [Test, Category("Positive")]
         public void VerifyCreateProjectModalTest()
         {
             //Action
@@ -92,7 +92,7 @@ namespace TestmonitorTests.Tetsts.UI
             });
         }
 
-        [Test, Category("Negative"), Description("Artificial bug"), Order(4)]
+        [Test, Category("Negative"), Description("Artificial bug")]
         public void CloseProjectModalTest()
         {
             //Action
