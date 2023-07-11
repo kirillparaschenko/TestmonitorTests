@@ -3,6 +3,7 @@ using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -100,5 +101,26 @@ namespace TestmonitorTests.Tetsts.UI
             //Assertion
             Assert.IsFalse(SettingsProjetsPage.CreateProjectModal().Displayed);
         }
+
+        [TestCase("A", "A")]
+        [TestCase("Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean m",
+            "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean m")]
+        [TestCase("Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean ma",
+            "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean m")]
+        public void CreationProjectTest(string projectName, string expectedProjectName)
+        {
+            //TestData
+            project = new ProjectBuilder()
+                .SetProjectName(projectName)
+                .SetProjectDescription("Boundary values tests")
+                .Build();
+
+            //Action
+            ProjectSteps.CreateProject(project);
+
+            //Assertion
+            Assert.AreEqual(expectedProjectName, SettingsProjetsPage.LastProjectCard().Text);
+        }
+
     }
 }
