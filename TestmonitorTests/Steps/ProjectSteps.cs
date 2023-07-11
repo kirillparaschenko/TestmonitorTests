@@ -23,7 +23,7 @@ namespace TestmonitorTests.Steps
             CreateProjectModal.FeaturetButton().Click();
             CreateProjectModal.FeaturetButton().Click();
             CreateProjectModal.FeaturetButton().Click();
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
 
             return SettingsProjetsPage;
         }
