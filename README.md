@@ -6,15 +6,14 @@ UI Tests
     - Verify that pop up message is displayed after creating project;
     - Verify creation project;
     - Verify deletion of project;
-    - Verify that dialog window Add Requirement is displayed.
+    - Verify that dialog window Create Project is displayed;
  - Negative:
     - Verify that user can't login with invalid credentials;
-    - тест на ввод данных превышающих допустимые;
-    - Verify that Test suite is removed;
+    - Verify that dialog window Create Project is closed (artificial bug);
 
 API Tests
 - Verify that GET https://mydomain.testmonitor.com/api/v1/projects/{projectId} Request returns correct response with project parameters
-- Verify that GET https://mydomain.testmonitor.com/api/v1/requirements/{requirementId} Request returns correct response with requirement parameters
-- Verify that GET https://mydomain.testmonitor.com/api/v1/test-suites/{testSuiteId}} Request returns correct response with test suite parameters
-- Verify that Test case is created after request POST https://mydomain.testmonitor.com/api/v1/test-cases 
+- Verify that GET https://mydomain.testmonitor.com/api/v1/projects/{projectId} with invalid projectId Request returns correct response and errore message
+- Verify that POST https://mydomain.testmonitor.com/api/v1/projects with valid Body Request returns correct response with created Project parameters
+- Verify that POST https://mydomain.testmonitor.com/api/v1/projects with invalid Body (without 1 required parameter) Request returns correct response and errore message
  

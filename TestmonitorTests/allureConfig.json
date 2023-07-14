@@ -1,0 +1,10 @@
+{
+  "allure": {
+    "directory": "allure-results",
+    "links": [
+      "{links}",
+      "https://dev.azure.com/kparaschenko/",
+      "https://dev.azure.com/kparaschenko/"
+    ]
+  }
+}
