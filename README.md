@@ -2,12 +2,11 @@
 ## Tests checklist 
 UI Tests
 - Positive:
-    - Verify input Name on boundary values (0, 1, 101, 102 symbols);
+    - Verify input Project Name on boundary values (1, 100, 101 symbols);
     - Verify that pop up message is displayed after creating project;
     - Verify creation project;
     - Verify deletion of project;
     - Verify that dialog window Create Project is displayed;
-    - Verify that file is uploaded on the issue page.
  - Negative:
     - Verify that user can't login with invalid credentials;
     - Verify that dialog window Create Project is closed (artificial bug);
